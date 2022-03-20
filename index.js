@@ -1,11 +1,13 @@
-const greetings = "Приветствую!";
+const greetings = 'Приветствую!';
 alert(greetings);
 
-let userName = prompt("Представьтесь, пожалуйста:");
-let userAge = prompt("Укажите Ваш возраст:");
+let userName = prompt('Представьтесь, пожалуйста:');
+let userAge = prompt('Укажите Ваш возраст:');
 
-if (userName.length && userAge.length > 0) {
+if (!parseInt(userAge)) {
+  alert('Возраст нужно писать числом.');
+} else if (userName <= 0) {
+  alert('Вы не указали имя.');
+} else if (userName.trim().length && userAge.trim().length > 0) {
   alert(`Добро пожаловать, ${userName}. Ваш возраст: ${userAge}`);
-} else {
-  alert("Вы ввели не все данные!");
 }
