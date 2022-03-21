@@ -1,3 +1,5 @@
+'use strict';
+
 const greetings = 'Приветствую!';
 alert(greetings);
 
