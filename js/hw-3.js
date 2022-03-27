@@ -1,8 +1,8 @@
 'use strict';
 
-let firstOperand = parseInt(prompt('Введите первое число'));
+let firstOperand = +prompt('Введите первое число');
 let operator = prompt('Введите один из операторов: "- + * /"');
-let secondOperand = parseInt(prompt('Введите второе число'));
+let secondOperand = +prompt('Введите второе число');
 let result;
 
 // проверяет условие и показывает результат операции
