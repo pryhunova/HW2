@@ -1457,7 +1457,7 @@ function getUser() {
   const userToDo = Object.keys(todos);
   for (const todo of todos) {
     if (user.id === todo.userId && !todo.completed) {
-      console.log(todo);
+      console.log(todo.title);
     }
   }
 
