@@ -1444,5 +1444,28 @@ const todos = [
   },
 ];
 
-console.log(users);
-console.log(todos);
+function getUser() {
+  //Находим пользователя с навыком "Web"
+  const user = users.find(user => {
+    if (user.company.bs.includes('web')) {
+      console.log(user);
+      return user;
+    }
+  });
+
+  //выводим список невыполненных задач
+  const userToDo = Object.keys(todos);
+  for (const todo of todos) {
+    if (user.id === todo.userId && !todo.completed) {
+      console.log(todo);
+    }
+  }
+
+  // const userToDo = todos.filter(todo => {
+  //   if (user.id === todo.userId && !todo.completed) {
+  //     console.log(todo);
+  //   }
+  // });
+}
+
+getUser();
