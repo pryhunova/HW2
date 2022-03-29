@@ -1444,7 +1444,7 @@ const todos = [
   },
 ];
 
-function getUser() {
+function getUserToDo() {
   //Находим пользователя с навыком "Web"
   const user = users.find(user => {
     if (user.company.bs.includes('web')) {
@@ -1468,4 +1468,4 @@ function getUser() {
   // });
 }
 
-getUser();
+getUserToDo();
