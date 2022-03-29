@@ -1454,18 +1454,18 @@ function getUserToDo() {
   });
 
   //выводим список невыполненных задач
+  const userToDo = todos.filter(todo => {
+    if (user.id === todo.userId && !todo.completed) {
+      console.log(todo);
+    }
+  });
+  //второй вариант
 
   // for (const todo of todos) {
   //   if (user.id === todo.userId && !todo.completed) {
   //     console.log(todo.title);
   //   }
   // }
-
-  const userToDo = todos.filter(todo => {
-    if (user.id === todo.userId && !todo.completed) {
-      console.log(todo);
-    }
-  });
 }
 
 getUserToDo();
