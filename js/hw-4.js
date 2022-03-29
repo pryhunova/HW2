@@ -1454,8 +1454,7 @@ function getUserToDo() {
   });
 
   //выводим список невыполненных задач
-  const userToDo = Object.keys(todos);
-  for (const todo of todos) {
+  for (const todo of Object.values(todos)) {
     if (user.id === todo.userId && !todo.completed) {
       console.log(todo.title);
     }
