@@ -1455,8 +1455,9 @@ function getUserToDo() {
 
   //выводим список невыполненных задач
   const userToDo = todos.filter(todo => {
-    if (user.id === todo.userId && !todo.completed) {
+    if (user.id === todo.userId && todo.completed === false) {
       console.log(todo);
+      return todo;
     }
   });
   //второй вариант
