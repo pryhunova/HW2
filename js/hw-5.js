@@ -21,7 +21,7 @@ function addToCart(id) {
 }
 
 function printCheck() {
-  cart.map((item, i) => {
+  cart.forEach((item, i) => {
     console.log(`${i + 1} ${item.name} цена: ${item.cost}`);
   });
 }
