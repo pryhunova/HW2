@@ -21,6 +21,6 @@ button.addEventListener('click', () => {
     for (let i = 2; i < question; i++) {
       if (question % i === 0) return false;
     }
-    return alert('Вы ввели простое число');
+    alert('Вы ввели простое число');
   }
 });
