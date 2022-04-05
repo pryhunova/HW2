@@ -233,8 +233,8 @@ const users = [
 ];
 
 function getUserByValue(userValue) {
+  const key = Object.keys(userValue);
   const findUserByValue = users.find(user => {
-    const key = Object.keys(userValue);
     return user[key] === userValue[key];
   });
   console.log(findUserByValue);
