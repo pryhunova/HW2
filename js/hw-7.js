@@ -232,12 +232,19 @@ const users = [
   },
 ];
 
-function getUserByValue(userValue) {
+function getUserByValue(users, userValue) {
   const key = Object.keys(userValue);
-  const findUserByValue = users.find(user => {
-    return user[key] === userValue[key];
-  });
-  console.log(findUserByValue);
+
+  // const findUserByValue = users.find(user => {
+  //   return user[key] === userValue[key];
+  // });
+  //console.log(findUserByValue);
+
+  for (const user of users) {
+    if (user[key] === userValue[key]) {
+      return console.log(user);
+    }
+  }
 }
 
-getUserByValue({ email: 'Shanna@melissa.tv' });
+getUserByValue(users, { email: 'Shanna@melissa.tv' });
