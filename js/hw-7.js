@@ -237,7 +237,7 @@ function getUserByValue(users, userValue) {
 
   for (const user of users) {
     if (user[key] === userValue[key]) {
-      return console.log(user);
+      return user;
     }
   }
 
@@ -247,4 +247,4 @@ function getUserByValue(users, userValue) {
   //console.log(findUserByValue);
 }
 
-getUserByValue(users, { email: 'Shanna@melissa.tv' });
+console.log(getUserByValue(users, { email: 'Shanna@melissa.tv' }));
