@@ -71,9 +71,9 @@ itSchool.on(itSchool.__supportedEventTypes.GROUP_ENDED, courseName =>
 );
 
 // старт групп
-itSchool.startLearningGroup('Front-end Pro', 10);
-itSchool.startLearningGroup('Front-end Basic', 4);
-itSchool.startLearningGroup('Python Basic', 6);
+itSchool.startLearningGroup('Front-end Pro', 5);
+itSchool.startLearningGroup('Front-end Basic', 16);
+itSchool.startLearningGroup('Python Basic', 00);
 
 // конец групп
 itSchool.endLearningGroup('Front-end Basic');
