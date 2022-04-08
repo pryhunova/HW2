@@ -20,7 +20,6 @@ const itSchool = {
         ) {
           this.startedGroups.push({ courseName, amountOfStudents });
           this.dispatch(this.__supportedEventTypes.GROUP_STARTED, courseName);
-          console.log(`${courseName} group has started.`);
         } else {
           console.log(`${courseName} has already started.`);
         }
@@ -46,7 +45,6 @@ const itSchool = {
         startedGroup => startedGroup.courseName !== courseName,
       );
       this.dispatch(this.__supportedEventTypes.GROUP_ENDED, courseName);
-      console.log(`${courseName} group has successfully finished.`);
     } else {
       console.log(
         `An error has occurred. ${courseName} group hasn't started yet.`,
@@ -64,11 +62,11 @@ const itSchool = {
   },
 };
 
-itSchool.on('GROUP_STARTED', courseName =>
+itSchool.on(itSchool.__supportedEventTypes.GROUP_STARTED, courseName =>
   console.log(`Startes ${courseName} group!`),
 );
 
-itSchool.on('GROUP_ENDED', courseName =>
+itSchool.on(itSchool.__supportedEventTypes.GROUP_ENDED, courseName =>
   console.log(`Group with ${courseName} course successfully finished!`),
 );
 
