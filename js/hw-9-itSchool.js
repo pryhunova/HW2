@@ -46,9 +46,7 @@ const itSchool = {
       );
       this.dispatch(this.__supportedEventTypes.GROUP_ENDED, courseName);
     } else {
-      console.log(
-        `An error has occurred. ${courseName} group hasn't started yet.`,
-      );
+      console.log(`${courseName} group hasn't started yet.`);
     }
   },
 
