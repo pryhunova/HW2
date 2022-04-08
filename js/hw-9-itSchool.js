@@ -1,6 +1,6 @@
 const itSchool = {
   name: 'Simple Online School',
-  description: 'This is a description of our super truper online school',
+  description: 'Simple Online School description.',
   maxGroupCount: 5,
   maxStudentCountPerGroup: 12,
   availableCourses: ['Front-end Basic', 'Front-end Pro'],
@@ -19,12 +19,9 @@ const itSchool = {
           )
         ) {
           this.startedGroups.push({ courseName, amountOfStudents });
-          this.dispatch('GROUP_STARTED', courseName);
-          console.log(`${courseName} group has started.`);
+          this.dispatch(this.__supportedEventTypes.GROUP_STARTED, courseName);
         } else {
-          console.log(
-            `${courseName} has already started, we cannot start it again until it finishes.`,
-          );
+          console.log(`${courseName} has already started.`);
         }
       } else {
         console.log(
