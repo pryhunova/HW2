@@ -20,6 +20,7 @@ const itSchool = {
         ) {
           this.startedGroups.push({ courseName, amountOfStudents });
           this.dispatch(this.__supportedEventTypes.GROUP_STARTED, courseName);
+          console.log(`${courseName} group has started.`);
         } else {
           console.log(`${courseName} has already started.`);
         }
@@ -44,7 +45,7 @@ const itSchool = {
       this.startedGroups = this.startedGroups.filter(
         startedGroup => startedGroup.courseName !== courseName,
       );
-      this.dispatch('GROUP_ENDED', courseName);
+      this.dispatch(this.__supportedEventTypes.GROUP_ENDED, courseName);
       console.log(`${courseName} group has successfully finished.`);
     } else {
       console.log(
