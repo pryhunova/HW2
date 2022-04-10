@@ -10,6 +10,45 @@ html {
 body {
   font-family: "Poppins", sans-serif;
 }
+/* общие сбросы */
+.link {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
 
 .container {
   margin-left: auto;
@@ -23,6 +62,7 @@ body {
   max-width: 100%;
   min-width: 140px;
   padding: 3px;
+  margin-bottom: 10px;
   
   display: flex;
   align-items: center;
