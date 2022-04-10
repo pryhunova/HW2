@@ -1,16 +1,16 @@
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-function chunk(arr, chunkSize) {
+function chunk(list, chunkSize) {
   let chunks = [];
 
-  for (let i = 0; i < arr.length; i += chunkSize) {
+  for (let i = 0; i < list.length; i += chunkSize) {
     if (!chunkSize) {
       return `Error`;
     }
     if (chunkSize === 1) {
-      return arr;
+      return list;
     } else {
-      chunks.push(arr.slice(i, i + chunkSize));
+      chunks.push(list.slice(i, i + chunkSize));
     }
   }
 
