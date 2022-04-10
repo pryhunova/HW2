@@ -4,7 +4,7 @@ function chunk(arr, chunkSize) {
   let chunks = [];
 
   while (arr.length) {
-    if (chunkSize === 0) {
+    if (!chunkSize) {
       return `Error`;
     }
     if (chunkSize === 1) {
