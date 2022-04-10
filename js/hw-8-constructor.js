@@ -14,30 +14,11 @@ const Hotel = {
     greet = function (guestName) {
       guestName = prompt('Please, enter your name:', '');
       hotelRef.insertAdjacentHTML(
-        'afterbegin',
+        'beforeend',
         `<p>Hello ${guestName}, wellcome to ${hotelName}.</p>`,
       );
     };
     greet();
-
-    addGuests = function (amount) {
-      amount = +prompt('Please, enter the amount of guests.', '');
-
-      if (amount > capacity) {
-        hotelRef.insertAdjacentHTML(
-          'afterbegin',
-          `<p>Sorry, we don't have ${amount} places. There are ${capacity} available places in ${hotelName}.</p>`,
-        );
-        return;
-      } else {
-        capacity -= amount;
-        hotelRef.insertAdjacentHTML(
-          'afterbegin',
-          `<p>Amount of guests: ${amount}. There are ${capacity} available places in ${hotelName}.</p>`,
-        );
-      }
-    };
-    addGuests();
 
     createAnOrder = function () {
       const order = {};
@@ -47,13 +28,31 @@ const Hotel = {
           '',
         );
         hotelRef.insertAdjacentHTML(
-          'afterbegin',
-          `<p>${option}: ${order[option]}.<p>`,
+          'beforeend',
+          `<p>${option}: ${order[option]}<p>`,
         );
       }
       return order;
     };
-    createAnOrder();
+
+    addGuests = function (amount) {
+      amount = +prompt('Please, enter the amount of guests.', '');
+
+      if (amount > capacity) {
+        hotelRef.insertAdjacentHTML(
+          'beforeend',
+          `<p>Sorry, we don't have ${amount} places. There are ${capacity} available places in ${hotelName}.</p>`,
+        );
+      } else {
+        capacity -= amount;
+        hotelRef.insertAdjacentHTML(
+          'beforeend',
+          `<p>Amount of guests: ${amount}. There are ${capacity} available places in ${hotelName}.</p>`,
+        );
+        createAnOrder();
+      }
+    };
+    addGuests();
   },
 };
 
