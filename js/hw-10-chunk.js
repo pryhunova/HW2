@@ -1,11 +1,20 @@
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 function chunk(arr, chunkSize) {
-  // здесь ваш код который возвращает массив кусочков
-  // по аналогии с колбасой на НГ, мы определяем как порезать длинную колбасу
-  // исходный массив - колбаса
-  // chunkSize - размер кусочка
-  // возвращаемое значение - тарелка с кусочками
+  let chunks = [];
+
+  while (arr.length) {
+    if (chunkSize === 0) {
+      return `Error`;
+    }
+    if (chunkSize === 1) {
+      return arr;
+    } else {
+      chunks.push(arr.splice(0, chunkSize));
+    }
+  }
+
+  return chunks;
 }
 
 const result = chunk(arr, 3); // 3 - размер каждого кусочка
