@@ -59,9 +59,10 @@ const Hotel = function (hotelName, capacity) {
     };
     addGuests();
   });
-  console.log(orderList);
+
   return orderList;
 };
 
 const hotel = new Hotel('Odesa Hotel', 50);
 // const hotel2 = new Hotel('Uman Hotel', 50);
+console.log(hotel);
