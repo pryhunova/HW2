@@ -62,4 +62,4 @@ const Hotel = function (hotelName, capacity) {
   console.log(orderList);
 };
 
-const hotel = Object.create(Hotel).constructor('Odesa Hotel', 50);
+const hotel = new Hotel('Odesa Hotel', 50);
