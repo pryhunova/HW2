@@ -63,3 +63,4 @@ const Hotel = function (hotelName, capacity) {
 };
 
 const hotel = new Hotel('Odesa Hotel', 50);
+// const hotel2 = new Hotel('Uman Hotel', 50);
