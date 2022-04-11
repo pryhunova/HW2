@@ -2,16 +2,16 @@ const buttonRef = document.querySelector('#btn');
 const hotelRef = document.querySelector('#hotel');
 
 const orderList = [];
-const orderConfig = {
-  accommodation: ['Room', 'Apartments', 'Cottage'],
-  transfer: ['Yes', 'No'],
-  breakfast: ['Yes', 'No'],
-};
 
 const Hotel = function (hotelName, capacity) {
   this.hotelName = hotelName;
   this.capacity = capacity;
 
+  const orderConfig = {
+    accommodation: ['Room', 'Apartments', 'Cottage'],
+    transfer: ['Yes', 'No'],
+    breakfast: ['Yes', 'No'],
+  };
   buttonRef.addEventListener('click', () => {
     greet = function (guestName) {
       guestName = prompt('Please, enter your name:', '');
