@@ -25,7 +25,15 @@ buttonRef.addEventListener('click', () => {
       );
     }
   }
-  return hotel.orderList.push(guestName, amount, order);
+  hotel.orderList.push(guestName, amount, order);
 });
 
 console.log(hotel.orderList);
+
+function addOrderToHTML() {
+  hotelRef.insertAdjacentHTML(
+    'beforeend',
+    `<p>Hello, ${guestName}! Wellcome to ${hotel.hotelName}.</p><p>Amount of guests: ${amount}</p><p>Details of your order. ${option}: ${order[option]}<p>`,
+  );
+}
+addOrderToHTML();
