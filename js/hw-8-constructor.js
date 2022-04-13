@@ -47,17 +47,18 @@ const renderNewOrderList = newOrder => {
   } else {
     hotel.capacity -= newOrder.amount;
     createAmountOfGuests.innerText = `Amount of guests: ${newOrder.amount}`;
+
+    const createNewOrderList = document.createElement('ul');
+
+    for (const key in newOrder.order) {
+      const ordetItem = document.createElement('li');
+      ordetItem.innerText = `${key}: ${newOrder.order[key]}`;
+
+      createNewOrderList.append(ordetItem);
+      divWrapper.append(createNewOrderList);
+    }
   }
 
-  const createNewOrderList = document.createElement('ul');
-
-  for (const key in newOrder.order) {
-    const ordetItem = document.createElement('li');
-    ordetItem.innerText = `${key}: ${newOrder.order[key]}`;
-
-    createNewOrderList.append(ordetItem);
-  }
-
-  divWrapper.append(createGuestName, createAmountOfGuests, createNewOrderList);
+  divWrapper.append(createGuestName, createAmountOfGuests);
   hotelRef.append(divWrapper);
 };
