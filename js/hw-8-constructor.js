@@ -1,7 +1,6 @@
 'use strict';
 const buttonRef = document.querySelector('#btn');
 const hotelRef = document.querySelector('#hotel');
-const orderOptionsRef = document.querySelector('#order-options');
 
 const hotel = {
   hotelName: 'Odesa Hotel',
@@ -19,40 +18,46 @@ buttonRef.addEventListener('click', () => {
   const amount = +prompt('Please, enter the amount of guests.', '');
   const order = {};
 
-  function addOrderToHTML() {
-    hotelRef.insertAdjacentHTML(
-      'beforebegin',
-      `<h2>Hello, ${guestName}! Wellcome to ${hotel.hotelName}.</h2>`,
+  for (let option in hotel.orderConfig) {
+    order[option] = prompt(
+      `Please, choose the options ${option}: ${hotel.orderConfig[option]}.`,
     );
-    if (amount > hotel.capacity) {
-      hotelRef.insertAdjacentHTML(
-        'beforebegin',
-        `<p>Sorry, we don't have ${amount} places. There are ${hotel.capacity} available places in ${hotel.hotelName}.</p>`,
-      );
-    } else {
-      hotel.capacity -= amount;
-      hotelRef.insertAdjacentHTML(
-        'beforebegin',
-        `<p>Amount of guests: ${amount}. There are ${hotel.capacity} available places in ${hotel.hotelName}.</p>`,
-      );
-      chooseOrderOptions();
-    }
   }
 
-  function chooseOrderOptions() {
-    for (let option in hotel.orderConfig) {
-      order[option] = prompt(
-        `Please, choose the options ${option}: ${hotel.orderConfig[option]}.`,
-        '',
-      );
-      orderOptionsRef.insertAdjacentHTML(
-        'beforeend',
-        `<li>${option}: ${order[option]}</li>`,
-      );
-    }
+  if (amount > hotel.capacity) {
+  } else {
+    hotel.capacity -= amount;
   }
-  hotel.orderList.push(guestName, amount, hotel.capacity, order);
-  addOrderToHTML();
+
+  const objectValue = {
+    guestName,
+    amount,
+    order,
+  };
+
+  hotel.orderList.push(objectValue);
+  renderNewOrderList(objectValue);
 });
 
-console.log(hotel.orderList);
+const renderNewOrderList = newOrder => {
+  const divWrapper = document.createElement('div');
+  divWrapper.className = 'order-wrapper';
+
+  const createGuestName = document.createElement('p');
+  createGuestName.innerText = `Guest name: ${newOrder.guestName}`;
+
+  const createAmountOfGuests = document.createElement('p');
+  createAmountOfGuests.innerText = `Amount of guests: ${newOrder.amount}`;
+
+  const createNewOrderList = document.createElement('ul');
+
+  for (const key in newOrder.order) {
+    const ordetItem = document.createElement('li');
+    ordetItem.innerText = `${key}: ${newOrder.order[key]}`;
+
+    createNewOrderList.append(ordetItem);
+  }
+
+  divWrapper.append(createGuestName, createAmountOfGuests, createNewOrderList);
+  hotelRef.append(divWrapper);
+};
