@@ -4,7 +4,6 @@ const hotelRef = document.querySelector('#hotel');
 
 const hotel = {
   hotelName: 'Odesa Hotel',
-  capacity: 50,
   orderList: [],
   orderConfig: {
     accommodation: ['Room', 'Apartments', 'Cottage'],
@@ -42,23 +41,17 @@ const renderNewOrderList = newOrder => {
   createGuestName.innerText = `Guest name: ${newOrder.guestName}`;
 
   const createAmountOfGuests = document.createElement('p');
-  if (newOrder.amount > hotel.capacity) {
-    createAmountOfGuests.innerText = `Sorry, we don't have ${newOrder.amount} places. There are ${hotel.capacity} available places in ${hotel.hotelName}.`;
-  } else {
-    hotel.capacity -= newOrder.amount;
-    createAmountOfGuests.innerText = `Amount of guests: ${newOrder.amount}`;
+  createAmountOfGuests.innerText = `Amount of guests: ${newOrder.amount}`;
 
-    const createNewOrderList = document.createElement('ul');
+  const createNewOrderList = document.createElement('ul');
 
-    for (const key in newOrder.order) {
-      const ordetItem = document.createElement('li');
-      ordetItem.innerText = `${key}: ${newOrder.order[key]}`;
+  for (const key in newOrder.order) {
+    const ordetItem = document.createElement('li');
+    ordetItem.innerText = `${key}: ${newOrder.order[key]}`;
 
-      createNewOrderList.append(ordetItem);
-      divWrapper.append(createNewOrderList);
-    }
+    createNewOrderList.append(ordetItem);
   }
 
-  divWrapper.append(createGuestName, createAmountOfGuests);
+  divWrapper.append(createGuestName, createAmountOfGuests, createNewOrderList);
   hotelRef.append(divWrapper);
 };
