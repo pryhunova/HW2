@@ -4,7 +4,6 @@ const hotelRef = document.querySelector('#hotel');
 
 const hotel = {
   hotelName: 'Odesa Hotel',
-  capacity: 50,
   orderList: [],
   orderConfig: {
     accommodation: ['Room', 'Apartments', 'Cottage'],
@@ -22,11 +21,6 @@ buttonRef.addEventListener('click', () => {
     order[option] = prompt(
       `Please, choose the options ${option}: ${hotel.orderConfig[option]}.`,
     );
-  }
-
-  if (amount > hotel.capacity) {
-  } else {
-    hotel.capacity -= amount;
   }
 
   const objectValue = {
