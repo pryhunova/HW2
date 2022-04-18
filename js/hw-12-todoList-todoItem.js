@@ -1,27 +1,30 @@
 class TodoList {
   items = [];
 
-  completeAll() {
-    this.items.forEach(item => (item.done = true));
+  add(id, title, description, done) {
+    const newTodoItem = new TodoItem(id, title, description, done);
+    this.items.push(newTodoItem);
   }
 
-  add(params) {
-    const newTodoItem = new TodoItem(params);
-    this.items.push(newTodoItem);
+  completeAll() {
+    this.items.forEach(item => (item.done = true));
   }
 }
 
 class TodoItem {
-  constructor(params) {
-    this.id = params.id;
-    this.title = params.title;
-    this.description = params.description;
-    this.done = params.done;
+  constructor(id, title, description, done) {
+    this.id = id;
+    this.title = title;
+    this.description = description;
+    this.done = done;
   }
 }
 
-const newList = new TodoList();
+const newTodoList = new TodoList();
 
-newList.add({ id: 15, title: 'Title', description: 'Description', done: true });
-newList.completeAll();
-console.log(newList);
+newTodoList.add(1, 'HTML', 'Website structure', true);
+newTodoList.add(2, 'CSS', 'Website styles', true);
+newTodoList.add(3, 'JS', 'Website interactivity', true);
+newTodoList.completeAll();
+
+console.log(newTodoList);
