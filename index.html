@@ -26,9 +26,30 @@
   <!-- <script src="./js/hw-5-addToCart.js"></script> -->
   <!-- <script src="./js/hw-6-isEven-isPrime.js"></script>  -->
   <!-- <script src="./js/hw-7-getUserByValue.js"></script>  -->
-  <script src="./js/hw-8-constructor.js"></script>
+  <!-- <script src="./js/hw-8-constructor.js"></script> -->
   <!-- <script src="./js/hw-9-itSchool.js"></script> -->
   <!-- <script src="./js/hw-10-chunk.js"></script> -->
-  <!-- <script src="./js/hw-11.js"></script> -->
+  <!-- <script src="./js/hw-11-itSchool.js"></script> -->
+  <!-- <script src="./js/hw-12-todoList-todoItem.js"></script> -->
+  <script src="./js/hw-13-itSchool/lesson.js"></script>
+  <script src="./js/hw-13-itSchool/course.js"></script>
+  <script src="./js/hw-13-itSchool/learning-group.js"></script>
+  <script src="./js/hw-13-itSchool/it-school.js"></script>
+  <script>
+    // создание новой школы
+    const itSchool = new ITSchool("My test school", "The first online school ever!", 30, 15);
+
+    // // регистрация нового курса
+    itSchool.registerCourse("Front-end Pro", 38, 3);
+
+    // // // запуск новой группы
+    itSchool.startLearningGroup("Front-end Pro", "Andrii Doroshenko", 10);
+
+    // // // работа с группой
+    const group = itSchool.getLearningGroups("Front-end Pro").find((group) => group.teacherName === "Andrii Doroshenko");
+  
+    group.doneLesson("Classes in JS", ["Object.create()", "Function Constructors", "Classes"]);
+    console.log(group);
+  </script>
 </body>
 </html>
