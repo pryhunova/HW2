@@ -1,6 +1,3 @@
-/*В <input> можно что-то ввести, если нажать на кнопку 
-то будет выведен alert c введенным в поле значением и после закрытия alert'а поле будет очищаться.*/
-
 const containerRef = document.querySelector('.container');
 
 const titleElement = document.createElement('h1');
