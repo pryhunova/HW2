@@ -10,7 +10,7 @@ const itSchool = {
   __supportedEventTypes: ['GROUP_STARTED', 'GROUP_ENDED'],
 
   // методы
-  startLearningGroup(courseName, amountOfStudents) {
+  startLearningGroup(courseName, amountOfStudents, totalLessons) {
     if (this.availableCourses.includes(courseName)) {
       if (amountOfStudents <= this.maxStudentCountPerGroup) {
         if (
@@ -18,7 +18,11 @@ const itSchool = {
             startedGroup => startedGroup.courseName === courseName,
           )
         ) {
-          this.startedGroups.push({ courseName, amountOfStudents });
+          this.startedGroups.push({
+            courseName,
+            amountOfStudents,
+            totalLessons,
+          });
           this.dispatch(this.__supportedEventTypes.GROUP_STARTED, courseName);
         } else {
           console.log(`${courseName} has already started.`);
@@ -34,6 +38,9 @@ const itSchool = {
       );
     }
   },
+  addCourse(courseName) {},
+
+  removeCourse(courseName) {},
 
   endLearningGroup(courseName) {
     if (
