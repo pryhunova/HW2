@@ -10,12 +10,9 @@ pElement.textContent = 'Создаём страницу с элементами 
 buttonElement.style.margin = '10px';
 buttonElement.textContent = 'Ввод';
 
-inputElement.addEventListener('click', () => {
-  buttonElement.addEventListener('click', () => {
-    alert(inputElement.value);
-    inputElement.value = '';
-    inputElement.removeEventListener('click', () => {});
-  });
+buttonElement.addEventListener('click', () => {
+  alert(inputElement.value);
+  inputElement.value = '';
 });
 
 containerRef.append(titleElement, pElement, inputElement, buttonElement);
