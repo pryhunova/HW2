@@ -101,3 +101,81 @@ a {
 .button:hover span {
   background: none;
 }
+
+                             /* HW-16 => to do list */
+
+.todo-container{
+  margin: 30px auto; 
+  text-align: center; 
+  max-width: 550px; 
+  min-height: 300px;
+  padding: 20px 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.todo-title{
+  text-align: center;
+  margin-bottom: 15px;
+  color: 000;
+  text-transform: uppercase;
+}
+
+.todo-input{
+  vertical-align: middle;
+  height: 35px;
+  width: 80%;
+  box-sizing: border-box;
+  border: solid 1px;
+  padding: 7px 10px;
+  
+  color: #333;
+  border-color: #5B42F3;
+}
+
+.todo-input:focus,
+.todo-input:active{
+  outline: none;
+} 
+
+.todo-button{
+  border: solid 1px #5B42F3;
+  padding: 7px 10px;
+  background: #5B42F3;
+  cursor: pointer;
+  min-width: 50px;
+  
+  color: #fefefe;
+  line-height: 1;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.todo-button:hover,
+.todo-button:focus {
+  outline: none;
+}
+
+.todo-input,
+.todo-button {
+  vertical-align: middle;
+  height: 35px;
+  box-sizing: border-box;
+}
+
+.todos{
+  position: relative; 
+  text-align: left; 
+  margin: 30px auto; 
+  padding: 15px; 
+  border: solid 1px transparent;
+  font-size: 12px;
+  }   
+    
+  .todo-checkbox{
+    position: absolute;
+    right: 8px;    
+    cursor: pointer;
+  }
+  
+    .todo-item{
+      margin-bottom: 15px;  
+    }
