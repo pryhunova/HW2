@@ -53,13 +53,18 @@ todoBtnEl.addEventListener('click', () => {
     todoItem.innerText = todoInputEl.value;
     newTodoList.add({ title: todoInputEl.value, done: false });
 
+    /*todoListEl.innerHTML += `<li class="todo-item">${newTodoList.add({
+      title: todoInputEl.value,
+      done: false,
+    })}<input type="checkbox" class="todo-checkbox" ></li>`;*/
+
     console.log(newTodoList);
 
     todoListEl.append(todoItem);
     todoItem.append(todoCheckbox, inpChecked);
 
     todoCheckbox.addEventListener('click', () => {
-      if (todoCheckbox.checked == true) {
+      if (todoCheckbox.checked === true) {
         todoItem.style.textDecoration = 'line-through';
       } else {
         todoItem.style.textDecoration = 'none';
