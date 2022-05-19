@@ -19,6 +19,27 @@ todoListEl.classList.add('todos');
 containerRef.append(todoContainerEl);
 todoContainerEl.append(todoTitleEl, todoInputEl, todoBtnEl, todoListEl);
 
+class TodoList {
+  items = [];
+
+  add({ title, done }) {
+    const newTodoItem = new TodoItem({ title, done });
+    this.items.push(newTodoItem);
+  }
+  completeAll() {
+    this.items.forEach(item => (item.done = true));
+  }
+}
+
+class TodoItem {
+  constructor({ title, done }) {
+    this.title = title;
+    this.done = done;
+  }
+}
+
+const newTodoList = new TodoList();
+
 todoBtnEl.addEventListener('click', () => {
   if (todoInputEl.value !== '') {
     const todoItem = document.createElement('li');
@@ -47,26 +68,3 @@ todoBtnEl.addEventListener('click', () => {
   }
   todoInputEl.value = '';
 });
-
-class TodoList {
-  items = [];
-
-  add({ title, done }) {
-    const newTodoItem = new TodoItem({ title, done });
-    this.items.push(newTodoItem);
-  }
-  completeAll() {
-    this.items.forEach(item => (item.done = true));
-  }
-}
-
-class TodoItem {
-  constructor({ title, done }) {
-    this.title = title;
-    this.done = done;
-  }
-}
-
-const newTodoList = new TodoList();
-
-newTodoList.completeAll();
