@@ -190,31 +190,32 @@ a {
 
     #counter-value {
       font-size: 30px;
-      margin: 15px;
-      color: blue;
+      margin: 15px;      
     }
 
     .counter-btn {
      min-width: 150px;
-      min-height: 50px;
-      font-size: 20px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: ease-in all 0.2s;
-        }
+     min-height: 50px;
+     font-size: 20px;
+     border-radius: 8px;
+     margin-bottom: 10px;
+     cursor: pointer;
+     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    }
+    .counter-btn:hover {
+      color: #FFFFFF
+    }
     
    .decrease:hover {
-     border-color: red;
-     color: red;
-   }
+    box-shadow: 0 0 40px 40px red inset;
+      }
     
    .increase:hover {
-     border-color: green;
-     color: green;
-   }
+    box-shadow: 0 0 40px 40px green inset;
+      }
     
    .reset:hover {
-     border-color: blue;
-      color: blue;
+    box-shadow: 0 0 40px 40px blue inset;
    }
+
+   
