@@ -179,3 +179,42 @@ a {
     .todo-item{
       margin-bottom: 15px;  
     }
+
+                    /* HW-18 => counter */
+    .counter-btn-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #counter-value {
+      font-size: 30px;
+      margin: 15px;
+      color: blue;
+    }
+
+    .counter-btn {
+     min-width: 150px;
+      min-height: 50px;
+      font-size: 20px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: ease-in all 0.2s;
+        }
+    
+   .decrease:hover {
+     border-color: red;
+     color: red;
+   }
+    
+   .increase:hover {
+     border-color: green;
+     color: green;
+   }
+    
+   .reset:hover {
+     border-color: blue;
+      color: blue;
+   }
