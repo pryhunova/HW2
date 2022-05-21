@@ -1,5 +1,5 @@
 const refs = {
-  decreaseBtn: document.querySelector('.counter-btn'),
+  decreaseBtn: document.querySelector('.decrease'),
   increaseBtn: document.querySelector('.increase'),
   resetBtn: document.querySelector('.reset'),
   countervalue: document.querySelector('#counter-value'),
