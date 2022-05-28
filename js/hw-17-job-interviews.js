@@ -173,12 +173,19 @@ Bomb.prototype.explosion = function () {
     Необходимо написать функцию, принимающую в аргументах массив целых чисел и возвращающую новый массив,
     состоящий только из уникальных значений первого массива.
 */
-const array = [1, 2, 3, 1, 1];
 
-function arrayUnique(arr) {
-  return arr.filter((el, id) => arr.indexOf(el) === id);
+function arrayUnique(array) {
+  const res = [];
+
+  return array.filter(item => {
+    if (!res.includes(item)) {
+      res.push(item);
+      return res;
+    }
+  });
 }
-console.log(arrayUnique(array));
+
+console.log(arrayUnique([1, 1, 2, 2, 4, 2, 7, 1])); // => [1, 2, 4, 3, 7]
 
 /*
      2. Реализовать методы, которые в процессе выполнения строки (2).plus(3).minus(1) дали бы на выходе 4.
