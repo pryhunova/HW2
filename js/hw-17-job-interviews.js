@@ -175,10 +175,10 @@ Bomb.prototype.explosion = function () {
 */
 const array = [1, 2, 3, 1, 1];
 
-function arrayUnique(arr) {
-  return arr.filter((el, id) => arr.indexOf(el) === id);
-}
-console.log(arrayUnique(array));
+// function arrayUnique(arr) {
+//   return arr.filter((el, id) => arr.indexOf(el) === id);
+// }
+// console.log(arrayUnique(array));
 
 /*
      2. Реализовать методы, которые в процессе выполнения строки (2).plus(3).minus(1) дали бы на выходе 4.
@@ -226,6 +226,7 @@ const words = [
   'banana',
 ];
 
-function solution(words) {}
-
-// console.log(solution(words));
+function solution(arr) {
+  return arr.filter((el, id) => arr.indexOf(el) === id);
+}
+console.log(solution(words));
