@@ -7,10 +7,18 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
 body {
-  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+
+  font-family: "Poppins", sans-serif;  
+  background: #100a1c;
+  color: #6cacc5;
 }
-/* общие сбросы */
+
+                   /* resets */
 .link {
   text-decoration: none;
   padding: 0;
@@ -51,175 +59,82 @@ a {
 }
 
 .container {
-  margin-left: auto;
-  margin-right: auto;
   padding-left: 30px;
   padding-right: 30px;
 }
 
-
-.button {
-  max-width: 100%;
-  min-width: 140px;
-  padding: 3px;
-  margin: 20px;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
- 
-  background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
-  border: none;
-  border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  
-  color: #FFFFFF;  
+                           /* HW-14 => calculator */
+.calculator {
+   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.5);
+   width:250px;  
+}
+.calculator__display{
+  text-align: right;
+  padding: 10px;
+  background-color: #212121;
   font-size: 20px;
-  line-height: 5px;  
-  text-decoration: none;
-  user-select: none;
-  touch-action: manipulation;
-  
-  cursor: pointer;
+}
+.calculator__keys{
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: repeat(4,auto);
+  grid-template-areas: 
+  ". . . ."
+  "seven eight nine equal"
+  "four five six equal"
+  "one too three equal"
+  "zero decimal clear equal";
 }
 
-.button:active,
-.button:hover {
-  outline: 0;
+.one{
+  grid-area: one;
 }
-
-.button span {
-  background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
-  border-radius: 6px;
-  width: 100%;
-  height: 100%;
-  transition: 300ms;
+.too{
+  grid-area: too;
 }
-
-.button:hover span {
-  background: none;
+.three {
+  grid-area: three;
 }
-
-                             /* HW-16 => to do list */
-
-.todo-container{
-  margin: 30px auto; 
-  text-align: center; 
-  max-width: 550px; 
-  min-height: 300px;
-  padding: 20px 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+.four {
+  grid-area: four;
 }
-
-.todo-title{
-  text-align: center;
-  margin-bottom: 15px;
-  color: 000;
-  text-transform: uppercase;
+.five {
+  grid-area: five;
 }
-
-.todo-input{
-  vertical-align: middle;
-  height: 35px;
-  width: 80%;
-  box-sizing: border-box;
-  border: solid 1px;
-  padding: 7px 10px;
-  
-  color: #333;
-  border-color: #5B42F3;
+.six{
+  grid-area: six;
 }
-
-.todo-input:focus,
-.todo-input:active{
-  outline: none;
-} 
-
-.todo-button{
-  border: solid 1px #5B42F3;
-  padding: 7px 10px;
-  background: #5B42F3;
-  cursor: pointer;
-  min-width: 50px;
-  
-  color: #fefefe;
-  line-height: 1;
-  font-size: 15px;
-  text-transform: uppercase;
+.seven {
+  grid-area:seven ;
 }
-.todo-button:hover,
-.todo-button:focus {
-  outline: none;
+.eight {
+  grid-area: eight;
 }
-
-.todo-input,
-.todo-button {
-  vertical-align: middle;
-  height: 35px;
-  box-sizing: border-box;
+.nine{
+  grid-area: nine;
 }
-
-.todos{
-  position: relative; 
-  text-align: left; 
-  margin: 30px auto; 
-  padding: 15px; 
-  border: solid 1px transparent;
-  font-size: 12px;
-  }   
-    
-  .todo-checkbox{
-    position: absolute;
-    right: 8px;    
-    cursor: pointer;
+.zero{
+  grid-area:zero ;
+}
+ .decimal {
+   grid-area: decimal;
   }
-  
-    .todo-item{
-      margin-bottom: 15px;  
-    }
 
-                    /* HW-18 => counter */
-    .counter-btn-container{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+ .clear{
+   grid-area: clear;
+  }
 
-    #counter-value {
-      font-size: 30px;
-      margin: 15px;      
-    }
+  .equal{
+    grid-area: equal;
+  }
 
-    .counter-btn {
-     min-width: 150px;
-     min-height: 50px;
-     font-size: 20px;
-     border-radius: 8px;
-     margin-bottom: 10px;
-     cursor: pointer;
-     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-    }
-    .counter-btn:hover,
-    .counter-btn:focus{
-      color: #FFFFFF
-    }
-    
-   .decrease:hover,
-   .decrease:focus {
-    box-shadow: 0 0 40px 40px red inset;
-      }
-    
-   .increase:hover,
-   .increase:focus{
-    box-shadow: 0 0 40px 40px green inset;
-      }
-    
-   .reset:hover,
-   .reset:focus {
-    box-shadow: 0 0 40px 40px blue inset;
-   }
-
-   
+  .calculator__btn{
+    padding: 10px;
+    font-size: 15px;
+    border: 0;
+  }
+  .calculator__btn:hover,
+  .calculator__btn:focus {
+    background: #aaa4fb;
+    border-width:1px
+  }
