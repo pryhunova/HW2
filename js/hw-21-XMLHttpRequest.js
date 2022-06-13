@@ -13,7 +13,8 @@ xhrGET.onload = function () {
 
 /* Creating a resource */
 const xhrPOST = new XMLHttpRequest();
-const json = JSON.stringify({
+
+const personConfig = JSON.stringify({
   name: 'Natalie',
   surname: 'Pryhunova',
 });
@@ -21,5 +22,5 @@ const json = JSON.stringify({
 xhrPOST.open('POST', 'https://jsonplaceholder.typicode.com/posts/');
 xhrPOST.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
-xhrPOST.send(json);
+xhrPOST.send(personConfig);
 xhrPOST.onload = () => console.log(xhrPOST.response);
