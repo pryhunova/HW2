@@ -3,7 +3,7 @@ const xhrGET = new XMLHttpRequest();
 xhrGET.open('GET', 'https://jsonplaceholder.typicode.com/posts/1');
 xhrGET.send();
 
-xhrGET.onload = function () {
+xhrGET.onload = () => {
   if (xhrGET.status != 200) {
     console.log(`Error: + ${xhrGET.status}`);
   } else {
@@ -23,6 +23,7 @@ xhrPOST.open('POST', 'https://jsonplaceholder.typicode.com/posts/');
 xhrPOST.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
 xhrPOST.send(personConfig);
+
 xhrPOST.onload = () => {
   if (xhrPOST.status != 201) {
     console.log(`Error: + ${xhrPOST.status}`);
