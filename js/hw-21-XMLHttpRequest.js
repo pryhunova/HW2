@@ -23,4 +23,10 @@ xhrPOST.open('POST', 'https://jsonplaceholder.typicode.com/posts/');
 xhrPOST.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
 xhrPOST.send(personConfig);
-xhrPOST.onload = () => console.log(xhrPOST.response);
+xhrPOST.onload = () => {
+  if (xhrPOST.status != 201) {
+    console.log(`Error: + ${xhrPOST.status}`);
+  } else {
+    console.log(xhrPOST.response);
+  }
+};
