@@ -5,16 +5,14 @@ html {
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items:center;
-
+  padding: 0;
+  margin: 0;
   font-family: "Poppins", sans-serif;  
-  background: #100a1c;
+  background: linear-gradient(to right, #180d2d, #6cacc5);
   color: #6cacc5;
 }
 
@@ -63,78 +61,50 @@ a {
   padding-right: 30px;
 }
 
-                           /* HW-14 => calculator */
-.calculator {
-   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.5);
-   width:250px;  
-}
-.calculator__display{
-  text-align: right;
-  padding: 10px;
-  background-color: #212121;
-  font-size: 20px;
-}
-.calculator__keys{
+             /* HW-14 => calculator */
+.calculator-grid{
   display: grid;
-  grid-gap: 2px;
-  grid-template-columns: repeat(4,auto);
-  grid-template-areas: 
-  ". . . ."
-  "seven eight nine equal"
-  "four five six equal"
-  "one too three equal"
-  "zero decimal clear equal";
-}
-
-.one{
-  grid-area: one;
-}
-.too{
-  grid-area: too;
-}
-.three {
-  grid-area: three;
-}
-.four {
-  grid-area: four;
-}
-.five {
-  grid-area: five;
-}
-.six{
-  grid-area: six;
-}
-.seven {
-  grid-area:seven ;
-}
-.eight {
-  grid-area: eight;
-}
-.nine{
-  grid-area: nine;
-}
-.zero{
-  grid-area:zero ;
-}
- .decimal {
-   grid-area: decimal;
+  justify-content: center;
+  align-content:center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);  
   }
 
- .clear{
-   grid-area: clear;
+ .calculator-grid > button {
+   cursor: pointer;
+   font-size: 2rem;
+   border: 1px solid #fff;
+   outline: none;
+ }
+
+ .calculator-grid>button:hover,
+ .calculator-grid>button:focus {
+  background-color:rgb(147, 219, 219);
+ }
+ 
+  .span-two {
+    grid-column: span 2;
   }
 
-  .equal{
-    grid-area: equal;
-  }
+ .output {
+   grid-column: 1 / -1;
+   background-color: rgba(0, 0, 0, 0.75);
+   display: flex;
+   align-items: flex-end;
+   justify-content: space-around;
+   flex-direction: column;
+   padding: 10px;
+   word-wrap: break-word;
+   word-break: break-all;
+ }
 
-  .calculator__btn{
-    padding: 10px;
-    font-size: 15px;
-    border: 0;
-  }
-  .calculator__btn:hover,
-  .calculator__btn:focus {
-    background: #aaa4fb;
-    border-width:1px
-  }
+ .output .previous-operand {
+   color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+ }
+  
+ .output .current-operand {
+   color: white;
+   font-size: 2.5rem;
+ }
