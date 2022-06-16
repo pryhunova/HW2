@@ -31,7 +31,7 @@ class ShoppingList {
 
   removeItem(id) {
     if (!this.list.find(elem => elem.id === +id)) {
-      throw new Error(`Нет элемента с id №${id}...`);
+      throw new Error(`Элемент с id №${id} не найден`);
     }
 
     this.list = this.list.filter(elem => elem.id !== +id);
@@ -70,6 +70,11 @@ function makeNewShoppingList() {
   }
   try {
     newShoppingList.addItem('Мясо', '0,5', 'кг');
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    newShoppingList.removeItem('4');
   } catch (error) {
     console.log(error);
   }
