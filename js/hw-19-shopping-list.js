@@ -10,19 +10,19 @@ class ShoppingList {
 
   addItem(title, count, unit) {
     if (this.list.length >= this.maxListLength) {
-      throw new Error(`Список уже полон, ${title} уже не унести...`);
+      throw new Error(`Превысили допустимое количество.`);
     }
 
     if (title === undefined || title === '') {
-      throw new Error(`Вы не заполнили поле title...`);
+      throw new Error(`Заполните название продукта.`);
     }
 
     if (count === undefined || count === '') {
-      throw new Error(`Вы не заполнили поле count у ${title}...`);
+      throw new Error(`Заполните количество в продукте ${title}`);
     }
 
     if (unit === undefined || unit === '') {
-      throw new Error(`Вы не заполнили поле unit у ${title}...`);
+      throw new Error(`Укажите единицу измерения в продукте ${title}`);
     }
 
     this.list.push(new ShoppingListItem(title, count, unit));
@@ -51,7 +51,7 @@ const newShoppingList = new ShoppingList('Покупки', 'Наташа Пры�
 
 (() => {
   try {
-    newShoppingList.addItem('', '3', 'пачках');
+    newShoppingList.addItem('', '3', 'шт');
   } catch (ex) {
     console.log(ex);
   }
@@ -63,7 +63,7 @@ const newShoppingList = new ShoppingList('Покупки', 'Наташа Пры�
   }
 
   try {
-    newShoppingList.addItem('Колбаса', '', 'палка');
+    newShoppingList.addItem('Банан', '', 'кг');
   } catch (ex) {
     console.log(ex);
   }
@@ -75,7 +75,7 @@ const newShoppingList = new ShoppingList('Покупки', 'Наташа Пры�
   }
 
   try {
-    newShoppingList.addItem('яблоко', '', 'шт');
+    newShoppingList.addItem('Мясо', '', 'кг');
   } catch (ex) {
     console.log(ex);
   } finally {
