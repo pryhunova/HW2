@@ -1,9 +1,11 @@
+let elementId = 1;
+
 class ShoppingList {
-  constructor(shopingListName, shopingListAuthor) {
-    this.shopingListName = shopingListName;
-    this.shopingListAuthor = shopingListAuthor;
-    this.maxNumberOfItems = 10;
-    this.productList = [];
+  constructor(title, author, maxListLength) {
+    this.title = title;
+    this.author = author;
+    this.maxListLength = maxListLength;
+    this.list = [];
   }
 
   addItem(title, count, unit) {
@@ -23,7 +25,7 @@ class ShoppingList {
       throw new Error(`Вы не заполнили поле unit у ${title}...`);
     }
 
-    this.list.push(new ShoppingListElement(title, count, unit));
+    this.list.push(new ShoppingListItem(title, count, unit));
     elementId++;
   }
 
@@ -37,10 +39,46 @@ class ShoppingList {
 }
 
 class ShoppingListItem {
-  constructor(id, title, count, unit) {
-    this.id = id;
+  constructor(title, count, unit) {
+    this.id = elementId;
     this.title = title;
     this.count = count;
     this.unit = unit;
   }
 }
+
+const shoppingListObject = new ShoppingList('Покупки', 'Наташа Прыгунова', '4');
+
+(() => {
+  try {
+    shoppingListObject.addItem('', '3', 'пачках');
+  } catch (ex) {
+    console.log(ex);
+  }
+
+  try {
+    shoppingListObject.addItem('Кефир', '3', 'л');
+  } catch (ex) {
+    console.log(ex);
+  }
+
+  try {
+    shoppingListObject.addItem('Колбаса', '', 'палка');
+  } catch (ex) {
+    console.log(ex);
+  }
+
+  try {
+    shoppingListObject.removeItem('7');
+  } catch (ex) {
+    console.log(ex);
+  }
+
+  try {
+    shoppingListObject.addItem('яблоко', '', 'шт');
+  } catch (ex) {
+    console.log(ex);
+  } finally {
+    console.log(shoppingListObject.list);
+  }
+})();
