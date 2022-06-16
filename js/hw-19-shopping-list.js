@@ -77,8 +77,8 @@ function makeNewShoppingList() {
     newShoppingList.addItem('', '3', 'пачках');
   } catch (error) {
     console.log(error);
+  } finally {
+    console.log(newShoppingList.list);
   }
-
-  console.log(newShoppingList.list);
 }
 makeNewShoppingList();
