@@ -26,7 +26,7 @@ class ShoppingList {
     }
 
     this.list.push(new ShoppingListItem(title, count, unit));
-    this.id++;
+    elementId++;
   }
 
   removeItem(id) {
@@ -52,10 +52,32 @@ function makeNewShoppingList() {
     'Список покупок',
     'Наташа Прыгунова',
   );
-  newShoppingList.addItem('Кефир', '1', 'л');
-  newShoppingList.addItem('Икра консерва', '1', 'шт');
-  newShoppingList.addItem('Банан', '1', 'кг');
-  newShoppingList.addItem('Мясо', '0,5', 'кг');
+
+  try {
+    newShoppingList.addItem('Кефир', '1', 'л');
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    newShoppingList.addItem('Икра консерва', '1', 'шт');
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    newShoppingList.addItem('Банан', '1', 'кг');
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    newShoppingList.addItem('Мясо', '0,5', 'кг');
+  } catch (error) {
+    console.log(error);
+  }
+  try {
+    newShoppingList.addItem('', '3', 'пачках');
+  } catch (error) {
+    console.log(error);
+  }
 
   for (const iterator of newShoppingList.list) {
     console.log(iterator);
