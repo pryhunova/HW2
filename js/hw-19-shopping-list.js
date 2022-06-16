@@ -74,6 +74,11 @@ function makeNewShoppingList() {
     console.log(error);
   }
   try {
+    newShoppingList.removeItem('4');
+  } catch (error) {
+    console.log(error);
+  }
+  try {
     newShoppingList.addItem('', '3', 'пачках');
   } catch (error) {
     console.log(error);
