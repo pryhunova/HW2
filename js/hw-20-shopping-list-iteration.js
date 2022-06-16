@@ -77,10 +77,10 @@ function makeNewShoppingList() {
     newShoppingList.addItem('', '3', 'пачках');
   } catch (error) {
     console.log(error);
-  }
-
-  for (const iterator of newShoppingList.list) {
-    console.log(iterator);
+  } finally {
+    for (const iterator of newShoppingList.list) {
+      console.log(iterator);
+    }
   }
 }
 makeNewShoppingList();
