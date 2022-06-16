@@ -70,11 +70,11 @@ function makeNewShoppingList() {
   } catch (error) {
     console.log(error);
   } finally {
-    shoppingListMarckup();
+    shoppingListMarkup();
   }
 }
 
-function shoppingListMarckup() {
+function shoppingListMarkup() {
   const wrapperEL = document.querySelector('.wrapper');
 
   for (const iterator of newShoppingList.list) {
