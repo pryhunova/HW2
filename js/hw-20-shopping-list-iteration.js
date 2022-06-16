@@ -52,11 +52,13 @@ function makeNewShoppingList() {
     'Список покупок',
     'Наташа Прыгунова',
   );
-  newShoppingList.addItem('Кефир', '3', 'л');
-  newShoppingList.addItem('', '3', 'шт');
-  newShoppingList.addItem('Банан', '', 'кг');
-  newShoppingList.addItem('Мясо', '', 'кг');
-  newShoppingList.addItem('Молоко', '', 'л');
-}
+  newShoppingList.addItem('Кефир', '1', 'л');
+  newShoppingList.addItem('Икра консерва', '1', 'шт');
+  newShoppingList.addItem('Банан', '1', 'кг');
+  newShoppingList.addItem('Мясо', '0,5', 'кг');
 
+  for (const iterator of newShoppingList.list) {
+    console.log(iterator);
+  }
+}
 makeNewShoppingList();
