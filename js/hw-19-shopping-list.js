@@ -4,12 +4,12 @@ class ShoppingList {
   constructor(title, author) {
     this.title = title;
     this.author = author;
-    this.maxListLength = 4;
+    this.amount = 4;
     this.list = [];
   }
 
   addItem(title, count, unit) {
-    if (this.list.length >= this.maxListLength) {
+    if (this.list.length >= this.amount) {
       throw new Error(`Превысили допустимое количество.`);
     }
 
@@ -39,20 +39,17 @@ class ShoppingList {
 }
 
 class ShoppingListItem {
-  constructor(title, count, unit) {
+  constructor(title, amount, unit) {
     this.id = itemId;
     this.title = title;
-    this.count = count;
+    this.amount = amount;
     this.unit = unit;
   }
 }
 
-function makeNewShoppingList() {
-  const newShoppingList = new ShoppingList(
-    'Список покупок',
-    'Наташа Прыгунова',
-  );
+const newShoppingList = new ShoppingList('Список покупок', 'Наташа Прыгунова');
 
+function makeNewShoppingList() {
   try {
     newShoppingList.addItem('Кефир', '1', 'л');
     newShoppingList.addItem('Икра консерва', '1', 'шт');
@@ -72,7 +69,18 @@ function makeNewShoppingList() {
   } catch (error) {
     console.log(error);
   } finally {
-    console.log(newShoppingList.list);
+    shoppingListMarckup();
   }
 }
+
+function shoppingListMarckup() {
+  const wrapperEL = document.querySelector('.wrapper');
+
+  for (const iterator of newShoppingList.list) {
+    const createItemEl = document.createElement('p');
+    wrapperEL.appendChild(createItemEl);
+    createItemEl.innerText = `${iterator.title}, количество = ${iterator.amount}, ${iterator.unit}`;
+  }
+}
+
 makeNewShoppingList();
