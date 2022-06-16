@@ -47,38 +47,38 @@ class ShoppingListItem {
   }
 }
 
-const shoppingListObject = new ShoppingList('Покупки', 'Наташа Прыгунова', '4');
+const newShoppingList = new ShoppingList('Покупки', 'Наташа Прыгунова', '3');
 
 (() => {
   try {
-    shoppingListObject.addItem('', '3', 'пачках');
+    newShoppingList.addItem('', '3', 'пачках');
   } catch (ex) {
     console.log(ex);
   }
 
   try {
-    shoppingListObject.addItem('Кефир', '3', 'л');
+    newShoppingList.addItem('Кефир', '3', 'л');
   } catch (ex) {
     console.log(ex);
   }
 
   try {
-    shoppingListObject.addItem('Колбаса', '', 'палка');
+    newShoppingList.addItem('Колбаса', '', 'палка');
   } catch (ex) {
     console.log(ex);
   }
 
   try {
-    shoppingListObject.removeItem('7');
+    newShoppingList.removeItem('7');
   } catch (ex) {
     console.log(ex);
   }
 
   try {
-    shoppingListObject.addItem('яблоко', '', 'шт');
+    newShoppingList.addItem('яблоко', '', 'шт');
   } catch (ex) {
     console.log(ex);
   } finally {
-    console.log(shoppingListObject.list);
+    console.log(newShoppingList.list);
   }
 })();
