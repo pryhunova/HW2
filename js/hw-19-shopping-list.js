@@ -4,12 +4,12 @@ class ShoppingList {
   constructor(title, author) {
     this.title = title;
     this.author = author;
-    this.amount = 4;
+    this.maxAmount = 4;
     this.list = [];
   }
 
   addItem(title, amount, unit) {
-    if (this.list.length > this.amount) {
+    if (this.list.length > this.maxAmount) {
       throw new Error(`Превысили допустимое количество.`);
     }
 
@@ -77,10 +77,10 @@ function makeNewShoppingList() {
 function shoppingListMarkup() {
   const wrapperEL = document.querySelector('.wrapper');
 
-  for (const iterator of newShoppingList.list) {
+  for (const item of newShoppingList.list) {
     const createItemEl = document.createElement('p');
     wrapperEL.appendChild(createItemEl);
-    createItemEl.innerText = `${iterator.title}, количество = ${iterator.amount}, ${iterator.unit}`;
+    createItemEl.innerText = `${item.title}, количество = ${item.amount}, ${item.unit}`;
   }
 }
 
