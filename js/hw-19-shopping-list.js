@@ -1,4 +1,4 @@
-let elementId = 1;
+let itemId = 1;
 
 class ShoppingList {
   constructor(title, author) {
@@ -26,7 +26,7 @@ class ShoppingList {
     }
 
     this.list.push(new ShoppingListItem(title, count, unit));
-    elementId++;
+    itemId++;
   }
 
   removeItem(id) {
@@ -40,7 +40,7 @@ class ShoppingList {
 
 class ShoppingListItem {
   constructor(title, count, unit) {
-    this.id = elementId;
+    this.id = itemId;
     this.title = title;
     this.count = count;
     this.unit = unit;
@@ -55,31 +55,20 @@ function makeNewShoppingList() {
 
   try {
     newShoppingList.addItem('Кефир', '1', 'л');
-  } catch (error) {
-    console.log(error);
-  }
-  try {
     newShoppingList.addItem('Икра консерва', '1', 'шт');
-  } catch (error) {
-    console.log(error);
-  }
-  try {
     newShoppingList.addItem('Банан', '1', 'кг');
-  } catch (error) {
-    console.log(error);
-  }
-  try {
     newShoppingList.addItem('Мясо', '0,5', 'кг');
   } catch (error) {
     console.log(error);
   }
+
   try {
     newShoppingList.removeItem('4');
   } catch (error) {
     console.log(error);
   }
   try {
-    newShoppingList.addItem('', '3', 'пачках');
+    newShoppingList.addItem('', '1', 'кг');
   } catch (error) {
     console.log(error);
   } finally {
