@@ -9,7 +9,7 @@ class ShoppingList {
   }
 
   addItem(title, count, unit) {
-    if (this.list.length >= this.amount) {
+    if (this.list.length > this.amount) {
       throw new Error(`Превысили допустимое количество.`);
     }
 
@@ -55,6 +55,7 @@ function makeNewShoppingList() {
     newShoppingList.addItem('Икра консерва', '1', 'шт');
     newShoppingList.addItem('Банан', '1', 'кг');
     newShoppingList.addItem('Мясо', '0,5', 'кг');
+    newShoppingList.addItem('Молоко', '1', 'л');
   } catch (error) {
     console.log(error);
   }
