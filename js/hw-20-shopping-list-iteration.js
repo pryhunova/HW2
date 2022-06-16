@@ -8,24 +8,24 @@ class ShoppingList {
     this.list = [];
   }
 
-  addItem(title, count, unit) {
+  addItem(title, amount, unit) {
     if (this.list.length > this.amount) {
       throw new Error(`Превысили допустимое количество.`);
     }
 
-    if (title === undefined || title === '') {
+    if (!title) {
       throw new Error(`Заполните название продукта.`);
     }
 
-    if (count === undefined || count === '') {
+    if (!amount) {
       throw new Error(`Заполните количество в продукте ${title}`);
     }
 
-    if (unit === undefined || unit === '') {
+    if (!unit) {
       throw new Error(`Укажите единицу измерения в продукте ${title}`);
     }
 
-    this.list.push(new ShoppingListItem(title, count, unit));
+    this.list.push(new ShoppingListItem(title, amount, unit));
     itemId++;
   }
 
