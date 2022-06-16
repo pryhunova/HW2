@@ -1,10 +1,10 @@
 let elementId = 1;
 
 class ShoppingList {
-  constructor(title, author, maxListLength) {
+  constructor(title, author) {
     this.title = title;
     this.author = author;
-    this.maxListLength = maxListLength;
+    this.maxListLength = 4;
     this.list = [];
   }
 
@@ -26,7 +26,7 @@ class ShoppingList {
     }
 
     this.list.push(new ShoppingListItem(title, count, unit));
-    elementId++;
+    this.id++;
   }
 
   removeItem(id) {
@@ -47,38 +47,17 @@ class ShoppingListItem {
   }
 }
 
-const newShoppingList = new ShoppingList('Покупки', 'Наташа Прыгунова', '4');
+function makeNewShoppingList() {
+  const newShoppingList = new ShoppingList(
+    'Список покупок',
+    'Наташа Прыгунова',
+  );
+  newShoppingList.addItem('Кефир', '1', 'л');
+  newShoppingList.addItem('Икра консерва', '1', 'шт');
+  newShoppingList.addItem('Банан', '1', 'кг');
+  newShoppingList.addItem('Мясо', '0,5', 'кг');
+  // newShoppingList.addItem('Молоко', '2', 'л');
 
-(() => {
-  try {
-    newShoppingList.addItem('', '3', 'шт');
-  } catch (ex) {
-    console.log(ex);
-  }
-
-  try {
-    newShoppingList.addItem('Кефир', '3', 'л');
-  } catch (ex) {
-    console.log(ex);
-  }
-
-  try {
-    newShoppingList.addItem('Банан', '', 'кг');
-  } catch (ex) {
-    console.log(ex);
-  }
-
-  try {
-    newShoppingList.removeItem('7');
-  } catch (ex) {
-    console.log(ex);
-  }
-
-  try {
-    newShoppingList.addItem('Мясо', '', 'кг');
-  } catch (ex) {
-    console.log(ex);
-  } finally {
-    console.log(newShoppingList.list);
-  }
-})();
+  console.log(newShoppingList.list);
+}
+makeNewShoppingList();
