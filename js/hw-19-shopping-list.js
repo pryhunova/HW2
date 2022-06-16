@@ -47,7 +47,7 @@ class ShoppingListItem {
   }
 }
 
-const newShoppingList = new ShoppingList('Покупки', 'Наташа Прыгунова', '3');
+const newShoppingList = new ShoppingList('Покупки', 'Наташа Прыгунова', '4');
 
 (() => {
   try {
