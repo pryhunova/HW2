@@ -13,6 +13,9 @@ class Calculator {
 
   backspace() {
     this.currentValue = this.currentValue.toString().slice(0, -1);
+    if (this.currentValue === '') {
+      this.currentValue = 0;
+    }
   }
 
   appendNumber(number) {
