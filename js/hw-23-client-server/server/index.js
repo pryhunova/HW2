@@ -26,7 +26,16 @@ const handler = (url, buffer, response, method) => {
       return;
     }
 
-    if (url.pathname.includes('/todos/') && method === 'delete') {
+    if (
+      url.pathname.includes('/todos/') &&
+      (method === 'options' || method === 'delete')
+    ) {
+      // ПЕРЕДЕЛАТЬ
+      if (method === 'options') {
+        response.end('');
+        return;
+      }
+
       const id = url.pathname.slice(7);
       const result = deleteTodo(id);
 
@@ -47,6 +56,12 @@ const httpServer = createServer((request, response) => {
   let buffer = '';
 
   response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PUT, DELETE, OPTIONS',
+  );
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  response.setHeader('Access-Control-Allow-Credentials', true);
 
   request.on('data', data => {
     buffer += decoder.write(data);
